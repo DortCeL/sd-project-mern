@@ -1,14 +1,16 @@
 import "./App.css";
-import { Main } from "./components/Main";
-import { Sidebar } from "./components/Sidebar";
-import { Topbar } from "./components/Topbar";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-      <Topbar />
-      <Sidebar />
-      <Main />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
