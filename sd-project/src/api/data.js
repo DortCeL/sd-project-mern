@@ -7,6 +7,14 @@ export const users = [
     gender: "Male",
   },
   {
+    gamertag: "Kingslayer",
+    name: "Munem Al Shafat",
+    age: 69,
+    nationality: "Bangladesh",
+    gender: "Gay",
+  },
+
+  {
     gamertag: "PewDiePie",
     name: "John Smith",
     age: 25,
