@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/lol" element={<FindCreators />} />
         </Routes>
       </BrowserRouter>
