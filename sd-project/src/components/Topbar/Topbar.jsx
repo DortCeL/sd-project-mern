@@ -1,46 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@mui/icons-material";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 
 export default function Topbar() {
   const navigate = useNavigate();
   return (
-    <div className="topbarContainer">
-      <div className="topbarLeft">
-        <span onClick={() => navigate("/")} className="logo">
-          Gamebook
-        </span>
-      </div>
-      <div className="topbarCenter">
-        <div className="searchbar">
-          <Search className="searchIcon" />
-          <input
-            placeholder="Search for friend, post or video"
-            className="searchInput"
-          />
-        </div>
-      </div>
-      <div className="topbarRight">
-        <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
-        </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
-            <Person />
-            <span className="topbarIconBadge">1</span>
-          </div>
-          <div className="topbarIconItem">
-            <Chat />
-            <span className="topbarIconBadge">2</span>
-          </div>
-          <div className="topbarIconItem">
-            <Notifications />
-            <span className="topbarIconBadge">1</span>
-          </div>
-        </div>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
-      </div>
-    </div>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }

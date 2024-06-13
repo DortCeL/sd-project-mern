@@ -7,6 +7,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Topbar from "../components/Topbar/Topbar";
 import { getData } from "../api/games";
 
@@ -14,6 +15,7 @@ const FindGames = () => {
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -46,6 +48,10 @@ const FindGames = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const handleRowClick = (row) => {
+    navigate(`/details`, { state: { game: row } });
   };
 
   return (
@@ -94,9 +100,11 @@ const FindGames = () => {
               <tbody>
                 {data.map((row) => (
                   <tr key={row.id}>
-                    <td>{row.title}</td>
-                    <td>{row.releaseDate}</td>
-                    <td>{row.publisher}</td>
+                    <td onClick={() => handleRowClick(row)}>{row.title}</td>
+                    <td onClick={() => handleRowClick(row)}>
+                      {row.releaseDate}
+                    </td>
+                    <td onClick={() => handleRowClick(row)}>{row.publisher}</td>
                     <td>
                       <Button variant="primary" className="mr-2">
                         Edit
